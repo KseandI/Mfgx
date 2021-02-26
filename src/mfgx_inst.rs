@@ -1,40 +1,50 @@
 extern crate gtk;
 extern crate gio;
 
-// To import all needed traits.
-use gtk::{GtkWindowExt, prelude::*};
+use gtk::{GtkWindowExt, MenuBar, MenuButton, prelude::*, subclass::header_bar};
 use gio::prelude::*;
 
+// Create UI -> Add context -> Add logic -> Open -> Destroy?
+
 pub struct Mfgx {
-    path: &'static str,
-    window: gtk::Application,
+    pub header: gtk::HeaderBar,
+    pub window: gtk::ApplicationWindow,
 }
 
 impl Mfgx {
-    pub fn new(x: i32, y: i32, _path: &'static str) -> Mfgx {
-        let mut mfgx: Mfgx = Mfgx {
-            path: _path,
-            window: gtk::Application::new(Some("org.kseandi.mfgx"),
-                                          gio::ApplicationFlags::FLAGS_NONE)
-                                      .expect("Application::new failed :("),
-        };
-        mfgx.window.connect_activate(move |app| {
-            let win = gtk::ApplicationWindow::new(app);
-            let hb = gtk::HeaderBar::new();
+    pub fn new(application: &gtk::Application) -> Self {
+        let header: gtk::HeaderBar = gtk::HeaderBar::new();
+        let window: gtk::ApplicationWindow = gtk::ApplicationWindow::new(application);
+        let panel: gtk::Paned = gtk::Paned::new(gtk::Orientation::Horizontal);
+        let head_menu: gtk::MenuButton = gtk::MenuButton::new();
+        let folder_view: gtk::FlowBox = gtk::FlowBox::new();
+        let test_fldr: gtk::Image = gtk::Image::from_icon_name(
+            Some("folder"), 
+            gtk::IconSize::Button);
+        let test_button: gtk::Button = gtk::Button::with_label("Console?");
+        window.resize(800, 600);
 
-            win.set_default_size(x, y);
-            win.set_titlebar(Some(&hb));
-
-            hb.set_show_close_button(true);
-
-            hb.set_title(Some("Mfgx"));
-            hb.set_subtitle(Some(_path));
-
-            win.show_all();
+        header.set_show_close_button(true);
+        header.set_title(Some("Mfgx"));
+        header.pack_end(&head_menu);
+        window.set_titlebar(Some(&header));
+        
+        test_button.connect_clicked(|_| {
+            println!("Hi!");
         });
-        mfgx
-    }
-    pub fn run(self: &mut Mfgx) {
-        self.window.run(&[]);
+        panel.add(&test_button);
+ 
+        folder_view.insert(&test_fldr, -1);
+        folder_view.set_property_expand(true);
+        panel.add(&folder_view);
+
+
+        window.add(&panel);
+
+        let app = Self {
+            header,
+            window,
+        };
+        app
     }
 }
