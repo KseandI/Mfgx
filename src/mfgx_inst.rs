@@ -1,6 +1,8 @@
 extern crate gtk;
 extern crate gio;
 
+use std::borrow::Borrow;
+
 use gtk::{GtkWindowExt, MenuBar, MenuButton, prelude::*, subclass::header_bar};
 use gio::prelude::*;
 
@@ -12,7 +14,11 @@ pub struct Mfgx {
 }
 
 impl Mfgx {
-    pub fn new(application: &gtk::Application) -> Self {
+    pub fn change_dir(path: &str) {
+        // TODO
+        println!("{0}", path);
+    }
+    pub fn new(application: & gtk::Application) -> Self {
         let header: gtk::HeaderBar = gtk::HeaderBar::new();
         let window: gtk::ApplicationWindow = gtk::ApplicationWindow::new(application);
         let panel: gtk::Paned = gtk::Paned::new(gtk::Orientation::Horizontal);
@@ -29,9 +35,6 @@ impl Mfgx {
         header.pack_end(&head_menu);
         window.set_titlebar(Some(&header));
         
-        test_button.connect_clicked(|_| {
-            println!("Hi!");
-        });
         panel.add(&test_button);
  
         folder_view.insert(&test_fldr, -1);
