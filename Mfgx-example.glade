@@ -22,7 +22,7 @@
               <object class="GtkImage">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="stock">gtk-directory</property>
+                <property name="icon-name">folder</property>
                 <property name="icon_size">6</property>
               </object>
               <packing>
@@ -86,12 +86,42 @@ type: Directory</property>
                     <property name="activate-on-single-click">False</property>
                     <child>
                       <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
+                        <property name="width-request">80</property>
                         <property name="height-request">80</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <child>
-                          <placeholder/>
+                          <object class="GtkBox">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="pixel-size">50</property>
+                                <property name="icon-name">folder</property>
+                                <property name="icon_size">6</property>
+                              </object>
+                              <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="label" translatable="yes">Folder</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
                         </child>
                       </object>
                     </child>
@@ -102,161 +132,37 @@ type: Directory</property>
                         <property name="visible">True</property>
                         <property name="can-focus">True</property>
                         <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
-                        </child>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFlowBoxChild">
-                        <property name="width-request">100</property>
-                        <property name="height-request">80</property>
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <child>
-                          <placeholder/>
+                          <object class="GtkBox">
+                            <property name="visible">True</property>
+                            <property name="can-focus">False</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="pixel-size">50</property>
+                                <property name="icon-name">folder</property>
+                                <property name="icon_size">6</property>
+                              </object>
+                              <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">True</property>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="visible">True</property>
+                                <property name="can-focus">False</property>
+                                <property name="label" translatable="yes">Folder</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">True</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
                         </child>
                       </object>
                     </child>
