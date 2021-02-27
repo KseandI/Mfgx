@@ -11,13 +11,11 @@ use gio::prelude::*;
 pub struct Mfgx {
     pub header: gtk::HeaderBar,
     pub window: gtk::ApplicationWindow,
+    pub folder_view: gtk::FlowBox,
+    pub folder_view_entity: gtk::FlowBoxChild,
 }
 
 impl Mfgx {
-    pub fn change_dir(path: &str) {
-        // TODO
-        println!("{0}", path);
-    }
     pub fn new(application: & gtk::Application) -> Self {
         let header: gtk::HeaderBar = gtk::HeaderBar::new();
         let window: gtk::ApplicationWindow = gtk::ApplicationWindow::new(application);
@@ -67,7 +65,6 @@ impl Mfgx {
         selected_info.set_vexpand(true);
         panel_vbox.add(&selected_info);
  
-        folder_view.insert(&folder_view_entity, -1);
         folder_view_entity.add(&gtk::Image::from_icon_name(
             Some("folder"), 
             gtk::IconSize::Dialog));
@@ -88,6 +85,8 @@ impl Mfgx {
         let app = Self {
             header,
             window,
+            folder_view,
+            folder_view_entity,
         };
         app
     }
