@@ -3,7 +3,7 @@ extern crate gio;
 
 use std::borrow::Borrow;
 
-use gtk::{GtkWindowExt, MenuBar, MenuButton, prelude::*, subclass::header_bar};
+use gtk::{GtkWindowExt, MenuBar, MenuButton, ScrolledWindow, Viewport, prelude::*, subclass::header_bar};
 use gio::prelude::*;
 
 // Create UI -> Add context -> Add logic -> Open -> Destroy?
@@ -24,6 +24,12 @@ impl Mfgx {
         let panel: gtk::Paned = gtk::Paned::new(gtk::Orientation::Horizontal);
         let add_folder: gtk::Button = gtk::Button::new();
         let add_file: gtk::Button = gtk::Button::new();
+        let folder_scroll: gtk::ScrolledWindow = gtk::ScrolledWindow::new(
+            None::<&gtk::Adjustment>, 
+            None::<&gtk::Adjustment>);
+        let folder_viewport: gtk::Viewport = gtk::Viewport::new(
+            None::<&gtk::Adjustment>, 
+            None::<&gtk::Adjustment>);
         let folder_view: gtk::FlowBox = gtk::FlowBox::new();
         let folder_view_entity: gtk::FlowBoxChild = gtk::FlowBoxChild::new();
         let selected_entity: gtk::Image = gtk::Image::from_icon_name(
@@ -62,8 +68,19 @@ impl Mfgx {
         panel_vbox.add(&selected_info);
  
         folder_view.insert(&folder_view_entity, -1);
-        folder_view.set_property_expand(true);
-        panel.add(&folder_view);
+        folder_view_entity.add(&gtk::Image::from_icon_name(
+            Some("folder"), 
+            gtk::IconSize::Dialog));
+        folder_view_entity.set_property_width_request(100);
+        folder_view_entity.set_property_height_request(100);
+
+        folder_view.set_valign(gtk::Align::Start);
+        folder_view.set_halign(gtk::Align::Start);
+
+
+        panel.add(&folder_scroll);
+        folder_scroll.add(&folder_viewport);
+        folder_viewport.add(&folder_view);
 
 
         window.add(&panel);
